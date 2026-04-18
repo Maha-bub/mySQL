@@ -15,7 +15,7 @@ $host="localhost";
 $user="root";
 
 $pass="";
-$database="pwad_batch-70";
+$database="products";
 
 $conn=new mysqli($host,$user,$pass,$database);
 
