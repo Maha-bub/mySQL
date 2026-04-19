@@ -37,5 +37,28 @@ if(isset($_POST['btnsubmit'])){
         <input type="text" name="phone"><br>
         <input type="submit" name="btnsubmit" value="Submit">
     </form>
+
+    <table>
+<tr>
+    <th>Id</th>
+    <th>Name</th>
+    <th>address</th>
+    <th>Email</th>
+    <th>Phone</th>
+</tr>
+</table>
+
+ <?php
+  $show=$database->query("select*from SHOW_DATA");
+  while (list($id,$name,$address,$email,$phone)=$show->fetch_row()) {
+    echo "
+    <tr>
+<td>$id</td>
+<td>$name</td>
+<td>$address</td>
+<td>$email</td>
+<td>$phone</td>
+</tr>"};
+</div>
 </body>
 </html>
