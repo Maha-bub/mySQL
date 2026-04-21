@@ -101,6 +101,10 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
 </tr>
 <?php } ?>
 
+
+<!-- practice for table data show -->
+<h3>Student information</h3>
++
  
 
     </table>
