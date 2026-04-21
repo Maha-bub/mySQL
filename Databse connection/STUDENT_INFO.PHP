@@ -86,10 +86,12 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
             <th class="p-2 border">Course</th>
             <th class="p-2 border">Contact</th>
         </tr>
-        <?php
-$result = $dbms->query("SELECT * FROM student_info");
+        
+        
+<?php
+     $result = $dbms->query("SELECT * FROM student_info");
 
-while($row = $result->fetch_assoc()){
+     while($row = $result->fetch_assoc()){  
 ?>
 <tr>
     <td><?= $row['id']; ?></td>
@@ -99,18 +101,7 @@ while($row = $result->fetch_assoc()){
 </tr>
 <?php } ?>
 
-       <?php
-$result = $dbms->query("SELECT * FROM student_info");
-
-while($row = $result->fetch_assoc()){
-?>
-<tr>
-    <td><?= $row['id']; ?></td>
-    <td><?= $row['Name']; ?></td>
-    <td><?= $row['Course']; ?></td>
-    <td><?= $row['Contact']; ?></td>
-</tr>
-<?php } ?>
+ 
 
     </table>
 </div>
