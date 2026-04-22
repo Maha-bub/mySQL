@@ -94,6 +94,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
      while($row = $result->fetch_assoc()){  
 ?>
 <tr>
+    
     <td><?= $row['id']; ?></td>
     <td><?= $row['Name']; ?></td>
     <td><?= $row['Course']; ?></td>
@@ -101,13 +102,38 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
 </tr>
 <?php } ?>
 
+ </table>
 
+ <table>
+    
 <!-- practice for table data show -->
 <h3>Student information</h3>
-+
- 
+<thead>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Course</th>
+        <th>Contact Number</th>
+    </tr>
 
-    </table>
+    <?php
+$result=$dbms->query("SELECT*FROM student_info");
+while ($row=$result->fetch_assoc()){
+?>
+
+
+</thead>
+<tbody>
+    <tr>
+        <td><?=$row['id'];?></td>
+        <td><?=$row['Name'];?></td>
+        <td><?=$row['Course'];?></td>
+        <td><?=$row['Contact'];?></td>
+        
+    </tr>
+</tbody>
+<?php }?>
+ </table>
 </div>
 
 </body>
