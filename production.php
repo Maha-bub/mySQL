@@ -5,7 +5,7 @@ if ($database->connect_error) {
     die("Connection failed: " . $database->connect_error);
 }
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+if (isset($_POST['submit'])) {
     $name = $_POST['name'];
     $address = $_POST['address'];
     $contact = $_POST['contact'];
@@ -25,7 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $name = $_POST['name'];
     $price = $_POST['price'];
     $man_id = $_POST['m_id'];
-    $database->query("call add_product('$name','$price','$man_id')");
+    $database->query("call product_info('$name','$price','$man_id')");
  }
 
 
@@ -73,6 +73,35 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <input type="submit" name="add_submit" value="Submit">
         </fieldset>
      </form>
+
+
+
+      <table border="1">
+    <thead>
+        <tr>
+            <th>id</th>
+            <th>Name</th>
+            <th>Price</th>
+            
+        </tr>
+    </thead>
+    <tbody>
+        <?php
+        $manufac = $database->query("SELECT * FROM manufacturer_view");
+
+        while(list($_mid, $_uname, $price) = $manufac->fetch_row()){
+        ?>
+            <tr>
+                <td><?php echo $_mid; ?></td>
+                <td><?php echo $_uname; ?></td>
+                <td><?php echo $price; ?></td>
+                
+            </tr>
+        <?php
+        }
+        ?>
+    </tbody>
+</table>
 
 
     </div>
