@@ -1,3 +1,18 @@
+<?php
+$db=new mysqli("localhost","root","","mahabub_70"); 
+//record delete operation
+if(isset($_GET['delete_id'])){
+    $id=$_GET['delete_id'];
+    $db->query("delete from Information where id='$id'");
+    header("location:table.php");
+}
+?>
+
+
+<?php
+$database
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,7 +28,7 @@
             
             <table class="table table-success table-striped">
                 <div class="d-flex justify-content-center align-items-center" style="">
-    <h3>Student Table</h3>
+                 <h3>Student Table</h3>
 
 
                 <tr>
@@ -21,6 +36,7 @@
                     <th>Name</th>
                     <th>Email</th>
                     <th>Contact</th>
+                    <th>Action</th>
                 </tr>
                 <?php
                 $db=new mysqli("localhost","root","","mahabub_70");
@@ -32,14 +48,18 @@
                     <td>$name</td>
                     <td>$email</td>
                     <td>$contact</td>
-                    
+                    <td><a href='table.php?delete_id=$id' class='btn btn-danger'>Delete</a></td>
                     </tr>";
                 }
                 ?>
- </table>
+            </table>
+                    <a href="insert.php" class="btn btn-primary">Insert</a>
+           
         </div>
+
     </div>
     </div>
+  
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
   </body>
