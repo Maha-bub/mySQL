@@ -10,7 +10,8 @@ if(isset($_POST['submit'])){
     $tabledata="INSERT INTO Information (id,name,email,contact) values('$id','$name','$email','$contact')";
     if(mysqli_query($db,$tabledata)==true){
         echo "Data input Success!";
-        header("location:table.php");
+        header("location:table.php".$_SERVER['PHP_SELF']);
+    exit();
     }
     else{
         "Data not inserted". mysqli_error($db);
