@@ -53,7 +53,9 @@ $database
                 }
                 ?>
             </table>
-                    <a href="insert.php" class="btn btn-primary">Insert</a>
+                    <a href="insert.php" >
+                        <button type="button" class="btn btn-primary">Insert</button>
+                    </a>
            
         </div>
 
