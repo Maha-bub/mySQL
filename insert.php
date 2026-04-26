@@ -29,8 +29,8 @@ if(isset($_POST['submit'])){
   </head>
 </head>
 <body>
-    <div class="container">
-        <h3 class="heading text-center my-3 text-primary  fw-bold">
+    <div class="container mt-5">
+        <h3 class="heading text-center my-3 text-secondary  fw-bold">
             Please fil-up the form
         </h3>
         <form action="" method="POST">
