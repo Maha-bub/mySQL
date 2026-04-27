@@ -1,4 +1,8 @@
 <?php 
+$databse =mysqli_connect('localhost','root','','pwad_batch-70');
+if(!$databse){
+    die("Database connection failed".mysqli_error($databse));
+}   
 
 
 ?>
