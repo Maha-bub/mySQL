@@ -44,18 +44,19 @@ $database
                 $u=$db->query("select * from Information");
                 while(list($id,$name,$email,$contact)=$u->fetch_row()){
                     echo "<tr>
-                    <td>$id</td>
-                    <td>$name</td>
-                    <td>$email</td>
-                    <td>$contact</td>
-                    <td><a href='table.php?delete_id=$id' class='btn btn-danger'>Delete</a></td>
+                                <td>$id</td>
+                                <td>$name</td>
+                                <td>$email</td>
+                                <td>$contact</td>
+                                <td>
+                                    <a href='edit.php?pdate_id=u$id' class='btn btn-dark'>Update</a>
+                                    <a href='table.php?delete_id=$id' class='btn btn-danger'>Delete</a>
+                                </td>
                     </tr>";
                 }
                 ?>
             </table>
-                    <a href="insert.php" >
-                        <button type="button" class="btn btn-primary">Insert</button>
-                    </a>
+              
            
         </div>
 
