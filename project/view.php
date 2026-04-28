@@ -1,17 +1,13 @@
 <?php
-$db=new mysqli("localhost","root","","mahabub_70"); 
+$db=new mysqli("localhost","root","","pwad_batch-70"); 
 //record delete operation
 if(isset($_GET['delete_id'])){
     $id=$_GET['delete_id'];
-    $db->query("delete from Information where id='$id'");
-    header("location:table.php");
+    $db->query("delete from information where id='$id'");
+    header("location:view.php");
 }
 ?>
 
-
-<?php
-$database
-?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -39,7 +35,7 @@ $database
                     <th>Action</th>
                 </tr>
                 <?php
-                $db=new mysqli("localhost","root","","mahabub_70");
+                $db=new mysqli("localhost","root","","pwad_batch-70");
 
                 $u=$db->query("select * from Information");
                 while(list($id,$name,$email,$contact)=$u->fetch_row()){
@@ -49,7 +45,7 @@ $database
                                 <td>$email</td>
                                 <td>$contact</td>
                                 <td>
-                                    <a href='edit.php?update_id='$id' class='btn btn-dark'>Update</a>
+                                    <a href='edit.php?update_id=u$id' class='btn btn-dark'>Update</a>
                                     <a href='table.php?delete_id=$id' class='btn btn-danger'>Delete</a>
                                 </td>
                     </tr>";

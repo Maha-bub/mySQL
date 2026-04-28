@@ -2,6 +2,7 @@
 $databse =mysqli_connect('localhost','root','','pwad_batch-70');
 
 
+<<<<<<< HEAD:dataquery/insert_table.php
 // if(!$databse){
 //     die("Database connection failed".mysqli_error($databse));
 // }
@@ -12,13 +13,34 @@ $databse =mysqli_connect('localhost','root','','pwad_batch-70');
 //     echo "Databse connection successfull!";
 // }
 if(isset($_POST['submit'])){
+=======
+
+   if(isset($_POST['submit'])){
+>>>>>>> 4e57f5e0335162da66b672b8729882481ccee65d:project/insert_table.php
     $name=$_POST['name'];
     $email=$_POST['email'];
     $contact=$_POST['contact'];
 
+<<<<<<< HEAD:dataquery/insert_table.php
     $query="insert into students (name,email, contact) values ('$name','$email','$contact')";
 
 }
+=======
+
+
+    $query="INSERT INTO information (name, email, contact) VALUES ('$name','$email','$contact')";
+
+    if(mysqli_query($databse,$query)==true){
+       
+        header ("location:view.php".$_SERVER['PHP_SELF']);
+       
+        exit();
+    }
+    else {
+           echo "Data not inserted!".mysqli_error($databse);
+    }
+   }
+>>>>>>> 4e57f5e0335162da66b672b8729882481ccee65d:project/insert_table.php
 
 
 
@@ -34,7 +56,7 @@ if(isset($_POST['submit'])){
 <body class="bg-gray-100 flex items-center justify-center min-h-screen">
     <div class="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
         <h2 class="text-2xl font-bold mb-6 text-center">Student Information Form</h2>
-        <form action="process.php" method="post">
+        <form action="" method="post">
             <div class="mb-4">
                 <label for="name" class="block text-sm font-medium text-gray-700">Name:</label>
                 <input type="text" id="name" name="name" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500" required>
@@ -50,7 +72,7 @@ if(isset($_POST['submit'])){
                 <input type="text" id="contact" name="contact" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500" required>
             </div>
             
-            <button type="submit" class="w-full bg-indigo-600 text-white py-2 px-4 rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Submit</button>
+            <button type="submit" name="submit" class="w-full bg-indigo-600 text-white py-2 px-4 rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Submit</button>
         </form>
     </div>
 </body>

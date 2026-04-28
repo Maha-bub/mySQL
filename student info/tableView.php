@@ -1,10 +1,10 @@
 <?php
-$db=new mysqli("localhost","root","","mahabub_70"); 
+$db=new mysqli("localhost","root","","pwad_batch-70"); 
 //record delete operation
 if(isset($_GET['delete_id'])){
     $id=$_GET['delete_id'];
-    $db->query("delete from Information where id='$id'");
-    header("location:table.php");
+    $db->query("delete from students where id='$id'");
+    header('location: tableView.php');
 }
 ?>
 
@@ -36,21 +36,24 @@ $database
                     <th>Name</th>
                     <th>Email</th>
                     <th>Contact</th>
+                    <th>Address</th>
                     <th>Action</th>
                 </tr>
                 <?php
-                $db=new mysqli("localhost","root","","mahabub_70");
+                $db=new mysqli("localhost","root","","pwad_batch-70");
 
-                $u=$db->query("select * from Information");
-                while(list($id,$name,$email,$contact)=$u->fetch_row()){
+                $all_info=$db->query("select * from students");
+                while(list($id,$name,$email,$contact,$address)=$all_info->fetch_row()){
                     echo "<tr>
                                 <td>$id</td>
                                 <td>$name</td>
                                 <td>$email</td>
                                 <td>$contact</td>
+                                <td>$address  </td>                              
+
                                 <td>
-                                    <a href='edit.php?update_id='$id' class='btn btn-dark'>Update</a>
-                                    <a href='table.php?delete_id=$id' class='btn btn-danger'>Delete</a>
+                                    <a href='updateTable.php?update_id=$id' class='btn btn-dark'>Update</a>
+                                    <a href='tableView.php?delete_id=$id' class='btn btn-danger'>Delete</a>
                                 </td>
                     </tr>";
                 }
