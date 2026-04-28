@@ -16,7 +16,7 @@ if(isset($_POST['insert'])){
 
     if(mysqli_query($database,$queryInsert)==true)//(procedural and oop mix for data insert)
         {
-       header("location: view.php");
+       header("location: tableView.php");
         exit();
     }
     else{
