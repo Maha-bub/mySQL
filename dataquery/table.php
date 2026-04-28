@@ -49,7 +49,7 @@ $database
                                 <td>$email</td>
                                 <td>$contact</td>
                                 <td>
-                                    <a href='edit.php?update_id=u$id' class='btn btn-dark'>Update</a>
+                                    <a href='edit.php?update_id='$id' class='btn btn-dark'>Update</a>
                                     <a href='table.php?delete_id=$id' class='btn btn-danger'>Delete</a>
                                 </td>
                     </tr>";

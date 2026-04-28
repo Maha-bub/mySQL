@@ -25,7 +25,7 @@ if(isset($_POST['update_submit'])){
 
     if(mysqli_query($db,$query)==true){
         echo "Data input Success!";
-        header("location:table.php".$_SERVER['PHP_SELF']);
+        header("location:table.php");
     exit();
     }
     else{

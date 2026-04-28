@@ -10,7 +10,7 @@ $databse =mysqli_connect('localhost','root','','pwad_batch-70');
 
 
 
-    $query="INSERT into information (name, email, contact) values ('$name','$email','$contact')";
+    $query="INSERT INTO information (name, email, contact) VALUES ('$name','$email','$contact')";
 
     if(mysqli_query($databse,$query)==true){
        
@@ -35,7 +35,7 @@ $databse =mysqli_connect('localhost','root','','pwad_batch-70');
 <body class="bg-gray-100 flex items-center justify-center min-h-screen">
     <div class="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
         <h2 class="text-2xl font-bold mb-6 text-center">Student Information Form</h2>
-        <form action="process.php" method="post">
+        <form action="" method="post">
             <div class="mb-4">
                 <label for="name" class="block text-sm font-medium text-gray-700">Name:</label>
                 <input type="text" id="name" name="name" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500" required>
