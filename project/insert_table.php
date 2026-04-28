@@ -2,17 +2,26 @@
 $databse =mysqli_connect('localhost','root','','pwad_batch-70');
 
 
-// if(!$databse){
-//     die("Database connection failed".mysqli_error($databse));
-// }
-if($databse->connection_error){
-die("connection failed!".$databse->connection_error);
-}
-else{
-    echo{
-        "Databse connection successfull!";
+
+   if(isset($_POST['submit'])){
+    $name=$_POST['name'];
+    $email=$_POST['email'];
+    $contact=$_POST['contact'];
+
+
+
+    $query="INSERT into information (name, email, contact) values ('$name','$email','$contact')";
+
+    if(mysqli_query($databse,$query)==true){
+       
+        header ("location:view.php".$_SERVER['PHP_SELF']);
+       
+        exit();
     }
-}
+    else {
+           echo "Data not inserted!".mysqli_error($databse);
+    }
+   }
 
 ?>
 <!DOCTYPE html>
@@ -42,7 +51,7 @@ else{
                 <input type="text" id="contact" name="contact" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500" required>
             </div>
             
-            <button type="submit" class="w-full bg-indigo-600 text-white py-2 px-4 rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Submit</button>
+            <button type="submit" name="submit" class="w-full bg-indigo-600 text-white py-2 px-4 rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Submit</button>
         </form>
     </div>
 </body>
