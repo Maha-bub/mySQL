@@ -14,7 +14,8 @@ if(isset($_POST['submit'])){
     exit();
     }
     else{
-        "Data not inserted". mysqli_error($db);
+        "Data not inserted". mysqli_error();
+        // "Data not inserted". mysqli_error($db);
     }
 }
 
