@@ -43,7 +43,7 @@ if(isset($_POST['submit'])) {
         <label for="contact">Contact:</label>
         <input type="text" id="contact" name="contact" required><br><br>
         
-        <input type="submit" value="Submit">
+        <input type="submit" name="submit" value="Submit">
     </form>
 </body>
 </html>
