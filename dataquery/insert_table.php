@@ -1,49 +1,25 @@
-<?php 
-$databse =mysqli_connect('localhost','root','','pwad_batch-70');
+<?php
+$database = new mysqli("localhost", "root", "", "pwad_batch-70");
 
-
-<<<<<<< HEAD:dataquery/insert_table.php
-// if(!$databse){
-//     die("Database connection failed".mysqli_error($databse));
-// }
-// if($databse->connection_error){
-// die("connection failed!".$databse->connection_error);
-// }
-// else{
-//     echo "Databse connection successfull!";
-// }
-if(isset($_POST['submit'])){
-=======
-
-   if(isset($_POST['submit'])){
->>>>>>> 4e57f5e0335162da66b672b8729882481ccee65d:project/insert_table.php
-    $name=$_POST['name'];
-    $email=$_POST['email'];
-    $contact=$_POST['contact'];
-
-<<<<<<< HEAD:dataquery/insert_table.php
-    $query="insert into students (name,email, contact) values ('$name','$email','$contact')";
-
+if($database->connect_error){
+    die("Connection failed: " . $database->connect_error);
 }
-=======
 
+if(isset($_POST['submit'])){
+    $name = $_POST['name'];
+    $email = $_POST['email'];
+    $contact = $_POST['contact'];
 
-    $query="INSERT INTO information (name, email, contact) VALUES ('$name','$email','$contact')";
+    $query = "INSERT INTO students (name,email,contact) VALUES ('$name','$email','$contact')";
 
-    if(mysqli_query($databse,$query)==true){
-       
-        header ("location:view.php".$_SERVER['PHP_SELF']);
-       
+    if(mysqli_query($database, $query)===true){
+        // echo "Data inserted successfully!";
+        header("Location: view.php");
         exit();
+    } else {
+        echo "Data not inserted! " . $database->error;
     }
-    else {
-           echo "Data not inserted!".mysqli_error($databse);
-    }
-   }
->>>>>>> 4e57f5e0335162da66b672b8729882481ccee65d:project/insert_table.php
-
-
-
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -53,7 +29,7 @@ if(isset($_POST['submit'])){
     <title>Student Information Form</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-gray-100 flex items-center justify-center min-h-screen">
+<body class="bg-gray-100 flex flex-col items-center justify-center min-h-screen">
     <div class="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
         <h2 class="text-2xl font-bold mb-6 text-center">Student Information Form</h2>
         <form action="" method="post">
@@ -72,7 +48,7 @@ if(isset($_POST['submit'])){
                 <input type="text" id="contact" name="contact" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500" required>
             </div>
             
-            <button type="submit" name="submit" class="w-full bg-indigo-600 text-white py-2 px-4 rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Submit</button>
+            <button type="submit" class="w-full bg-indigo-600 text-white py-2 px-4 rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2" name="submit">Submit</button>
         </form>
     </div>
 </body>

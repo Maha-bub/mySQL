@@ -7,12 +7,6 @@ if(isset($_GET['delete_id'])){
     header("location:table.php");
 }
 ?>
-
-
-<?php
-$database
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
