@@ -19,7 +19,7 @@ if(isset($_POST['submit'])) {
     VALUES ('$name', '$price', '$brand_id', '$product_image')";
 
     if($database->query($insertQuery)){
-        header("location:Product.php");
+        header("location:dataView.php");
     } else {
         echo "Data not inserted: " . $database->error;
     }

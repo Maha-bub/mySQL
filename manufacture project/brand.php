@@ -18,7 +18,7 @@ if(isset($_POST['submit'])) {
     $insertQuery="INSERT INTO brand (name,contact) values ('$name','$contact')"; 
     if(mysqli_query($database,$insertQuery)===true){
          echo "data inserted successfull!";
-          header("location:brand.php"); 
+          header("location:Product.php"); 
         }else {
         echo "data not inserted!".mysqli_error();
      }
