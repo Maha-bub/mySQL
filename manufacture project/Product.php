@@ -15,7 +15,7 @@ if(isset($_POST['submit'])) {
     move_uploaded_file($tmp_name, "uploads/".$product_image);
 
     // insert query
-    $insertQuery = "INSERT INTO products (name, price, brand_id, product_image)
+    $insertQuery = "INSERT INTO products (name,price,brand_id,product_image)
     VALUES ('$name', '$price', '$brand_id', '$product_image')";
 
     if($database->query($insertQuery)){
